@@ -174,16 +174,14 @@ function isInsideCircle(circle, point) {
  *   'entente' => null
  */
 function findFirstSingleChar(str) {
-  let result = null;
   for (let i = 0; i < str.length; i += 1) {
-    if (str.indexOf(str[i]) === i) {
-      result = str[i];
-      break;
+    const char = str[i];
+    if (str.indexOf(char) === i && str.indexOf(char, i + 1) === -1) {
+      return char;
     }
   }
-  return result;
+  return null;
 }
-
 /**
  * Returns the string representation of math interval,
  * specified by two points and include / exclude flags.
